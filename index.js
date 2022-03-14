@@ -1,3 +1,14 @@
+
+
+// We need to require the dotenv package only when I am in development mode
+if(process.env.NODE_ENV !== 'production'){
+    require('dotenv').config();
+}
+
+
+
+
+
 /* Requiring Modules */
 const express = require('express');
 const app = express();
@@ -35,7 +46,7 @@ const io = socketio(server);
 
 
 // MongoDB connection establish
-mongoose.connect('mongodb://localhost:27017/chat-app-db')
+mongoose.connect(process.env.MONGO_URL)
     .then(() => console.log('DB Connected'))
     .catch((err) => console.log(err));
 
