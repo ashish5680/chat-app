@@ -114,32 +114,34 @@ body {
 
  /* update with cahnges */
 
-/* ul{
+#chat{
     list-style: none;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    flex-direction: column;
-} */
+    width: 100%;
+    padding: 0px;
+    overflow-x: hidden;
+}
 
 
 .chatright{
-    list-style: none;
-    display: flex;
+    background-color: #ccf8c0;
     align-items: flex-end;
-    justify-content: center;
-    flex-direction: column;
+    margin-left: 55%;
+    margin-right: 1%;
 }
 
 
 .chatleft{
-    list-style: none;
-    display: flex;
     align-items: flex-start;
-    justify-content: center;
-    flex-direction: column;
-    margin-left: -35px;
+    margin-right: 55%;
+    margin-left: 1%;
 }
+
+
+
+/* span{
+    width: 100%;
+} */
+
 
 
 /* ////////////////////////////////////////////////////////////////////////////// */
@@ -154,8 +156,6 @@ body {
 
 li{ 
     border-radius: 8px;
-    margin-right: 10px;
-    margin-left: 25px;
     margin-top: 10px;
     padding: 16px 10px;
     background-color: #fff;
@@ -164,18 +164,28 @@ li{
     font-weight: 500;
     z-index: 100;
     font-family: 'PT Sans', sans-serif;
+    /* max-width: 80% !important; */
+    /* min-width: 20% !important; */
+    /* display: flex;
+    align-items: center;
+    justify-content: flex-start; */
     
 }
 li::first-letter {
-    text-transform: capitalize;
+    text-transform: capitalize !important;
 }
 
 li span {
     font-size: 20px;
     color: #000;
     font-weight: 800;
-    margin-right: 2px;
+    margin-right: 3px !important;
 }
+
+
+
+
+
 
 
 #chat-box{

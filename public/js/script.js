@@ -63,7 +63,7 @@ socket.on('recieved_msg_right', (data) => {
 
   const list_item = document.createElement('li');
   list_item.className = "chatright"
-  list_item.innerHTML = `<span>${data.user}:</span>  ${data.msg}`;
+  list_item.innerHTML = `<span>${data.user}: </span> ${data.msg}`;
   $('#chat').append(list_item);
   $("#chat-box").scrollTop($("#chat-box").outerHeight());
 });
@@ -74,7 +74,7 @@ socket.on('recieved_msg_left', (data) => {
 
   const list_item = document.createElement('li');
   list_item.className = "chatleft"
-  list_item.innerHTML = `<span>${data.user}:</span>  ${data.msg}`;
+  list_item.innerHTML = `<span>${data.user}: </span> ${data.msg}`;
   $('#chat').append(list_item);
   $("#chat-box").scrollTop($("#chat-box").outerHeight());
 });
