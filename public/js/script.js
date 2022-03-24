@@ -83,41 +83,6 @@ socket.on('recieved_msg_left', (data) => {
 
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-// /* Login Button */
-// const loginBtn = document.querySelector('#login-btn');
-
-// loginBtn.addEventListener('click', () => {
-//     const userTag = document.querySelector('#login-inp');
-//     const user = userTag.value; 
-
-//     socket.emit('login', {
-//         user: user
-//     })
-
-//     userTag.value = "";
-// })
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -126,6 +91,12 @@ socket.on('recieved_msg_left', (data) => {
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
 
 // For typing functionality
 
@@ -156,7 +127,6 @@ $(document).ready(function(){
           clearTimeout(timeout)
           typingTimeout()
           //sendMessage() function will be called once the user hits enter
-          // sendMessage()
       }
     })
 
@@ -175,5 +145,10 @@ $(document).ready(function(){
     })
 
 });
+
+
+
+
+
   
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////

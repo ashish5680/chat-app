@@ -37,7 +37,6 @@ const authRoutes = require('./routes/authRoutes');
 const http = require('http');
 const server = http.createServer(app);
 const socketio = require('socket.io');
-const { SocketAddress } = require('net');
 const io = socketio(server);
 
 
@@ -62,6 +61,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static(path.join(__dirname , 'public')));
 
+
 // Define the request body
 app.use(express.urlencoded({extended:true}));
 
@@ -70,18 +70,17 @@ app.use(express.urlencoded({extended:true}));
 
 
 
-sessionConfig = {
+const sessionConfig = {
     secret: 'weneedsomebettersecret',
     resave: false,
     saveUninitialized: true
 }
 
 
-
-
 // MiddleWares
 
 app.use(session(sessionConfig));
+
 app.use(flash());
 
 
@@ -102,12 +101,17 @@ app.use((req, res, next) => {
 
 
 
-app.use(passport.initialize());
-app.use(passport.session());
+// Passport Middlewares
+app.use(passport.initialize());      // tn a connect or express-based application, passport.initialize() middleware is required to initialize passpory
+app.use(passport.session());          // if our application uses persisten login sessions, so this missleware must be used
 
-passport.use(new LocalStrategy(User.authenticate()));
+passport.use(new LocalStrategy(User.authenticate()));    // to tell the passport to use local strategy
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+
+
+
 
 
 app.use(authRoutes);
@@ -163,15 +167,7 @@ io.on('connection', (socket) => {
 
 
 
-    
-
-
-
-
-
-
-
-
+    ////////////////////////////////////////////////////////////////////////
 
     // For typing functanality
     /*from server side we will emit 'display' event once the user starts typing
@@ -203,12 +199,7 @@ io.on('connection', (socket) => {
 
 
 
-
-
-
-
 const PORT = process.env.PORT || 3000;
-
 
 server.listen(PORT, () => {
     console.log('server running at port 3000');
