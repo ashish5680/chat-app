@@ -1,4 +1,7 @@
-const socket = io();
+// socket establish karne ke liye we need to write this function in client side
+const socket = io();    // io se client side pe socket create hota hai
+// is se basically pipeline create hoo jegi
+// io se basically client side pe socket create hoo jega
 
 
 
@@ -118,7 +121,7 @@ $(document).ready(function(){
 
       // console.log(userName);
 
-      if(e.which!=13){
+      if(e.which!=13){                          // 13 is enter key
           typing=true
           socket.emit('typing', {user:userName, typing:true})
           clearTimeout(timeout)

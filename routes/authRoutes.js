@@ -46,13 +46,13 @@ router.post('/register', async(req, res) => {
         const newUser = await User.register(user, password); 
         
         /* Success flash alert */
-        req.flash('success', 'Account created');
+        req.flash('success', 'Account created successfully');
     
         res.redirect('/login');
     }
 
     catch(e) {
-        req.flash('error', 'Account already exists with same username or email');
+        req.flash('error', 'Account already exists with the same username or email');
         res.redirect('/register');
     }
 
@@ -78,10 +78,10 @@ router.get('/login', (req, res) => {
 
 
 
+
+
 /* Username variable */
 var usern="";
-
-
 
 
 
@@ -107,6 +107,10 @@ router.post('/login',
     
 
     
+
+
+
+
     
 /* Rendering chat page */
 router.get('/chat', (req, res) => {
@@ -118,8 +122,6 @@ router.get('/chat', (req, res) => {
     });
 });
     
-
-
 
 
 
@@ -141,6 +143,10 @@ router.get('/logout', (req, res) => {
     req.flash('success', 'Account Logged Out');
     res.redirect('/');
 })
+
+
+
+
 
 
 
